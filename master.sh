@@ -1,8 +1,10 @@
 #!/bin/bash
 
-apt-get install -y salt-master salt-syndic salt-ssh
-echo "file_roots:" >> /etc/salt/master
-echo "  base:" >> /etc/salt/master
-echo "    - /srv/salt" >> /etc/salt/master
+apt-get install -y salt-master salt-syndic salt-ssh python-git
+cat <<'EOF' >> /etc/salt/master
+file_roots:
+  base:
+    - /srv/salt
+EOF
 mkdir -p /srv/salt
 service salt-master restart

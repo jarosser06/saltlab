@@ -15,10 +15,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.provision 'shell', path: 'master.sh'
   end
 
-  config.vm.define 'minion' do |minion|
-    minion.vm.hostname = 'minion'
-    minion.vm.network 'private_network', ip: '192.168.10.3'
-    minion.vm.provision 'shell', path: 'base.sh'
-    minion.vm.provision 'shell', path: 'minion.sh'
+  2.times do |i|
+    config.vm.define "minion#{i}" do |minion|
+      minion.vm.hostname = "minion#{i}"
+      minion.vm.network 'private_network', ip: "192.168.10.#{3 + i}"
+      minion.vm.provision 'shell', path: 'base.sh'
+      minion.vm.provision 'shell', path: 'minion.sh'
+    end
   end
 end
