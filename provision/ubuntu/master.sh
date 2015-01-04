@@ -5,6 +5,7 @@ cat <<'EOF' >> /etc/salt/master
 file_roots:
   base:
     - /srv/salt
+    - /srv/formulas
 EOF
 mkdir -p /srv/salt
 service salt-master restart
