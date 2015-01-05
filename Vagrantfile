@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  
+
   config.vm.provision 'shell', path: 'provision/base.sh'
 
   if Vagrant.has_plugin?('vagrant-cachier')
