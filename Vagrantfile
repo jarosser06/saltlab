@@ -21,6 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.hostname = 'master'
     master.vm.synced_folder './saltmaster', '/srv/salt'
     master.vm.synced_folder './formulas', '/srv/formulas'
+    master.vm.synced_folder './pillar', '/srv/pillar'
     master.vm.network 'private_network', ip: '192.168.10.2'
     master.vm.provision 'shell', path: 'provision/ubuntu/base.sh'
     master.vm.provision 'shell', path: 'provision/ubuntu/master.sh'

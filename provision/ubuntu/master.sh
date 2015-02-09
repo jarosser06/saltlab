@@ -6,6 +6,9 @@ file_roots:
   base:
     - /srv/salt
     - /srv/formulas
+pillar_roots:
+  base:
+    - /srv/pillar
 EOF
 mkdir -p /srv/salt
 service salt-master restart
